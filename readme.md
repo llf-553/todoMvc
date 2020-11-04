@@ -33,6 +33,7 @@
 + 添加任务:input.new-todo里面enter触发
 + 删除任务:button.destroy点击触发
 + 编辑任务:div.view>label双击触发
++ 处于编辑状态的input自动聚焦:使用自定义指令:v-todo-focus
 + 切换任务完成状态:input.toggle点击触发
 + 批量切换任务状态:label.toggle-all点击触发
 + 清除已完成的任务:button.clear-completed点击触发
@@ -297,5 +298,12 @@ methods:{
             return true;
         }
     }
+}
+```
+### bug修复
+> 首次输入hash不能显示对应任务bug解决方案
+```js
+data:{
+	flag:location.hash=="#/active"?({completed:false}):(location.hash=="#/completed"?({completed:true}):"")
 }
 ```

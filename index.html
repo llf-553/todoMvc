@@ -29,7 +29,7 @@
                         <label @dblclick="isEditing=task.id" v-text="task.title"></label>
                         <button class="destroy" @click="remove(task.id)"></button>
                     </div>
-                    <input class="edit" v-model="task.title" @keyup.enter="isEditing=-1" @blur="isEditing=-1">
+                    <input class="edit" v-model="task.title" @keyup.enter="isEditing=-1" @blur="isEditing=-1" v-todo-focus="isEditing == task.id">
                 </li>
 
             </ul>

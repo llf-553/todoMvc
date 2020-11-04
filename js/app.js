@@ -22,8 +22,18 @@
                 isEditing: -1,
                 status: true,
                 count: 0,
-                flag: ""
+                flag: location.hash == "#/active" ? ({ completed: false }) : (location.hash == "#/completed" ? ({ completed: true }) : "")
 
+            },
+            directives: {
+                // 在很多时候
+                // 你可能想在 bind 和 update 时触发相同行为
+                // 而不关心其它的钩子可以这样写:
+                'todo-focus': function(el, binding) {
+                    if (binding.value) {
+                        el.focus();
+                    }
+                }
             },
             computed: {
                 isShow() {
